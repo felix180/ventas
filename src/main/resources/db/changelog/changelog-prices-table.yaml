@@ -1,0 +1,62 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-sell
+      author: felix
+      preConditions:
+        - onFail: MARK_RAN
+          not:
+            tableExists:
+              tableName: PRICES
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: user_pkey
+                  name: id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: BRAND_ID
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: START_DATE
+                  type: timestamp
+              - column:
+                  constraints:
+                    nullable: false
+                  name: END_DATE
+                  type: timestamp
+              - column:
+                  constraints:
+                    nullable: false
+                  name: PRICE_LIST
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: PRODUCT_ID
+                  type: BIGINT
+
+              - column:
+                  constraints:
+                    nullable: false
+                  name: PRIORITY
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: PRICE
+                  type: currency
+              - column:
+                  constraints:
+                    nullable: false
+                  name: CURR
+                  type: VARCHAR(250)
+            tableName: PRICES
